@@ -55,9 +55,11 @@ function App() {
             <Route
 					path='/'
 					element={
-						<ProtectedRoute>
+						isAuthenticated && user?.isVerified ? (
 							<DashboardPage />
-						</ProtectedRoute>
+						) : (
+							<Navigate to='/signup' replace />
+						)
 					}
 				/>
 				<Route
@@ -96,7 +98,7 @@ function App() {
 					}
 				/>
 				{/* catch all routes */}
-				<Route path='*' element={<Navigate to='/' replace />} />
+				<Route path='*' element={<Navigate to='/signup' replace />} />
 
         </Routes>
         <Toaster/>
