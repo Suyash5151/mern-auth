@@ -16,6 +16,9 @@ app.use(express.json());
 
 
 
+console.log("🌍 NODE_ENV:", process.env.NODE_ENV);
+console.log("🌐 CLIENT_URL:", process.env.CLIENT_URL);
+
 app.use(cors({
   origin: process.env.CLIENT_URL,
   credentials: true
